@@ -1,7 +1,6 @@
 package oramon.saiyans.stringcalculator;
 
-public class Operation {
-    public Integer calculate() {
-        return null;
-    }
+public interface Operation {
+
+    Integer calculate();
 }
