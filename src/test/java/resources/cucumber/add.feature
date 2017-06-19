@@ -10,3 +10,8 @@ Feature: Add method
     Given you input of "1"
     When you process this input
     Then the result will be 1
+
+  Scenario: Empty string in string calculator
+    Given you input of ""
+    When you process this input
+    Then the result will be 0
