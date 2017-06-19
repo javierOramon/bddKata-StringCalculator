@@ -1,11 +1,10 @@
 package oramon.saiyans;
 
-import oramon.saiyans.stringcalculator.Operation;
-import oramon.saiyans.stringcalculator.OperationFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Before;
+import oramon.saiyans.stringcalculator.Operation;
+import oramon.saiyans.stringcalculator.OperationFactory;
 
 import static org.junit.Assert.assertEquals;
 
