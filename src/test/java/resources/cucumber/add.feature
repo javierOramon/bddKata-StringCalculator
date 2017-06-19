@@ -15,3 +15,13 @@ Feature: Add method
     Given you input of ""
     When you process this input
     Then the result will be 0
+
+  Scenario: Input 0 string in string calculator
+    Given you input of "0"
+    When you process this input
+    Then the result will be 0
+
+  Scenario: String calculator can handle an unknown amount of numbers
+    Given you input of "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"
+    When you process this input
+    Then the result will be 210
