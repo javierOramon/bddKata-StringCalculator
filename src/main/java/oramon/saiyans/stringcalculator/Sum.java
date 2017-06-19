@@ -1,5 +1,7 @@
 package oramon.saiyans.stringcalculator;
 
+import java.util.List;
+
 public class Sum implements Operation {
 
     private final int first_number;
@@ -9,6 +11,12 @@ public class Sum implements Operation {
         super();
         this.first_number = first_number;
         this.second_number = second_number;
+    }
+
+    public Sum(List<Integer> ts) {
+        first_number = 0;
+        second_number = 0;
+
     }
 
     public Integer calculate() {

@@ -3,6 +3,8 @@ package oramon.saiyans.stringcalculator;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 public class OperationFactoryTest {
@@ -40,6 +42,16 @@ public class OperationFactoryTest {
         final Operation expected = new Sum(0, 0);
         //Act
         Operation operation = factory.create(" ");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
+    @Test
+    public void multipleNumbersSeparatedByCommasReturnsASumOperationWithBothNumbers(){
+        //Arrange
+        final Operation expected = new Sum(Arrays.asList(2,4,5));
+        //Act
+        Operation operation = factory.create("2,4,5");
         //Assert
         assertEquals("The operation is not the same", expected, operation);
     }
