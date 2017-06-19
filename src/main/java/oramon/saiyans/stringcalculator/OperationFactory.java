@@ -9,10 +9,10 @@ public class OperationFactory {
     public Operation create(String input) {
 
         if(input.trim().isEmpty()) return new Sum(0, 0);
-
-        String[] numbers_splitted = input.split(",");
+        String sanitizedInput = input.replace("\n", ",");
+        String[] numbers_splitted = sanitizedInput.split(",");
         List<Integer> numbers = Arrays.stream(numbers_splitted)
-                .map(entry -> Integer.parseInt(entry))
+                .map(entry -> Integer.parseInt(entry.trim()))
                 .collect(Collectors.toList());
         return new Sum(numbers);
     }
