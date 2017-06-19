@@ -2,6 +2,7 @@ package oramon.saiyans.stringcalculator;
 
 public class OperationFactory {
     public Operation create(String input) {
+        if(input.trim().isEmpty()) return new Sum(0, 0);
         String[] numbers = input.split(",");
         Integer number1 = Integer.parseInt(numbers[0].trim());
         Integer number2 = 0;

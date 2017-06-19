@@ -34,4 +34,14 @@ public class OperationFactoryTest {
         assertEquals("The operation is not the same", expected, operation);
     }
 
+    @Test
+    public void EmptyStringsReturnsSumWithZeros(){
+        //Arrange
+        final Operation expected = new Sum(0, 0);
+        //Act
+        Operation operation = factory.create(" ");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
 }
