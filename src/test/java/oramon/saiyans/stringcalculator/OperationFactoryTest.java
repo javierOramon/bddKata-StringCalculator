@@ -56,4 +56,14 @@ public class OperationFactoryTest {
         assertEquals("The operation is not the same", expected, operation);
     }
 
+    @Test
+    public void sumNumbersWithLineBreak(){
+        //Arrange
+        final Operation expected = new Sum(Arrays.asList(2,4,5));
+        //Act
+        Operation operation = factory.create("2\n 4\n5");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
 }
