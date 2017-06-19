@@ -24,4 +24,14 @@ public class OperationFactoryTest {
         assertEquals("The operation is not the same", expected, operation);
     }
 
+    @Test
+    public void TwoNumbersSeparatedByCommasReturnsASumOperationWithBothNumbers(){
+        //Arrange
+        final Operation expected = new Sum(1, 2);
+        //Act
+        Operation operation = factory.create("1,2");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
 }
