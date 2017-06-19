@@ -5,13 +5,13 @@ import oramon.saiyans.stringcalculator.OperationFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
 
 public class AddSteps {
 
     private String input;
-    private OperationFactory operationFactory;
     private Operation operation;
 
     @Given("^you input of \"(.*?)\"$")
@@ -19,12 +19,13 @@ public class AddSteps {
         this.input = insert;
     }
 
-    @When("^When you process this input $")
+    @When("^you process this input$")
     public void proccessInput(){
+        OperationFactory operationFactory = new OperationFactory();
         operation = operationFactory.create(input);
     }
 
-    @Then("^Then the result will be (\\d+) $")
+    @Then("^the result will be (\\d+)$")
     public void resultWillBe(Integer expected){
         Integer result = operation.calculate();
         assertEquals("the result is not the expected", expected, result);
