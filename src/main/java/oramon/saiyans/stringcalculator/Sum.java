@@ -1,28 +1,28 @@
 package oramon.saiyans.stringcalculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Sum implements Operation {
 
-    private final int first_number;
-    private final int second_number;
+    private final List<Integer> list_of_numbers;
 
     public Sum(int first_number, int second_number) {
-        super();
-        this.first_number = first_number;
-        this.second_number = second_number;
+        this.list_of_numbers = Arrays.asList(first_number, second_number);
     }
 
-    public Sum(List<Integer> ts) {
-        first_number = 0;
-        second_number = 0;
-
+    public Sum(List<Integer> list_of_numbers) {
+        this.list_of_numbers = new ArrayList<>(list_of_numbers);
     }
 
     public Integer calculate() {
-        return first_number + second_number;
+        int total = 0;
+        for (Integer number : list_of_numbers) {
+            total += number;
+        }
+        return total;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -31,16 +31,11 @@ public class Sum implements Operation {
 
         Sum sum = (Sum) o;
 
-        if (first_number != sum.first_number) return false;
-        return second_number == sum.second_number;
+        return list_of_numbers != null ? list_of_numbers.equals(sum.list_of_numbers) : sum.list_of_numbers == null;
     }
 
     @Override
     public int hashCode() {
-        int result = first_number;
-        result = 31 * result + second_number;
-        return result;
+        return list_of_numbers != null ? list_of_numbers.hashCode() : 0;
     }
-
-
 }

@@ -2,6 +2,8 @@ package oramon.saiyans.stringcalculator;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class SumTest {
@@ -25,7 +27,7 @@ public class SumTest {
         //Act
         Integer result = sum.calculate();
         //Assert
-        assertEquals("Sum to zero doesn't work", expected, result);
+        assertEquals("Sum with two numbers doesn't work", expected, result);
     }
 
     @Test
@@ -36,8 +38,9 @@ public class SumTest {
         //Act
         Integer result = sum.calculate();
         //Assert
-        assertEquals("Sum to zero doesn't work", expected, result);
+        assertEquals("Sum with one negative value doesn't work", expected, result);
     }
+
     @Test
     public void calculateSumWithNegativeValues() throws Exception {
         //Arrange
@@ -46,7 +49,18 @@ public class SumTest {
         //Act
         Integer result = sum.calculate();
         //Assert
-        assertEquals("Sum to zero doesn't work", expected, result);
+        assertEquals("Sum with two negatives values doesn't work", expected, result);
+    }
+
+    @Test
+    public void calculateMultipleNumbers() throws Exception {
+        //Arrange
+        final Integer expected = -3;
+        Operation sum = new Sum(Arrays.asList(-5, 2, 5, -5));
+        //Act
+        Integer result = sum.calculate();
+        //Assert
+        assertEquals("Sum with multiple values doesn't work", expected, result);
     }
 
 

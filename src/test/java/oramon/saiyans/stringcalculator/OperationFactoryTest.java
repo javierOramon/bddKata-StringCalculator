@@ -17,9 +17,9 @@ public class OperationFactoryTest {
     }
 
     @Test
-    public void oneNumberReturnsASumOperationWithNumberSum0(){
+    public void oneNumberReturnsASumOperationWithNumberTheAlone(){
         //Arrange
-        final Operation expected = new Sum(1, 0);
+        final Operation expected = new Sum(Arrays.asList(1));
         //Act
         Operation operation = factory.create("1");
         //Assert
