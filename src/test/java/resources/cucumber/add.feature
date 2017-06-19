@@ -5,3 +5,8 @@ Feature: Add method
     Given you input of "1,2"
     When you process this input
     Then the result will be 3
+
+  Scenario: Input 1 string in string calculator
+    Given you input of "1"
+    When you process this input
+    Then the result will be 1
