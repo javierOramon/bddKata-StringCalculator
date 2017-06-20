@@ -26,7 +26,7 @@ Feature: Add method
     When you process this input
     Then the result will be 210
 
-  Scenario: String calculator can handle new lines between numbers (instead of commas)
+  Scenario: String calculator can handle new lines between numbers instead of commas
     Given you input of "1\n2,3"
     When you process this input
     Then the result will be 6
