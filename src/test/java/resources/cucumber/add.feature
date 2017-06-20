@@ -41,3 +41,9 @@ Feature: Add method
     Given you input of "2,1001"
     When you process this input
     Then the result will be 2
+
+  Scenario: String calculator delimiters can be of any length
+        # The multi-character delimiter is defined inside brackets and a new line separating the delimiter and the numbers. E.g. //[delimiter]\n[numbers…]
+    Given you input of "//[***]\n1***2***3"
+    When you process this input
+    Then the result will be 6
