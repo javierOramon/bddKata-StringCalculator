@@ -36,3 +36,8 @@ Feature: Add method
     Given you input of "//;\n1;2"
     When you process this input
     Then the result will be 3
+
+  Scenario: The string calculator should ignore numbers bigger than 1000
+    Given you input of "2,1001"
+    When you process this input
+    Then the result will be 2
