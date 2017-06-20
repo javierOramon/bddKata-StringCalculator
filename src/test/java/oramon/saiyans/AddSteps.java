@@ -15,7 +15,7 @@ public class AddSteps {
 
     @Given("^you input of \"(.*?)\"$")
     public void inputOperation(String insert){
-        this.input = insert;
+        this.input = insert.replace("\\n", "\n");
     }
 
     @When("^you process this input$")
