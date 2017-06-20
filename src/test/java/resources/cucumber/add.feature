@@ -47,3 +47,9 @@ Feature: Add method
     Given you input of "//[***]\n1***2***3"
     When you process this input
     Then the result will be 6
+
+  Scenario: The string calculator supports multiple delimiters
+        # Multiple delimiters can be provided inside brackets separated and a new line separating the delimiter and the numbers. E.g. //[delimiter]\n[numbers…]
+    Given you input of "//[*][%]\n1*2%3"
+    When you process this input
+    Then the result will be 6
