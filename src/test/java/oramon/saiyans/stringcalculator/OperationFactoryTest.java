@@ -76,4 +76,14 @@ public class OperationFactoryTest {
         assertEquals("The operation is not the same", expected, operation);
     }
 
+    @Test
+    public void numbersUpper1000AreIgnoredInTheSum(){
+        //Arrange
+        final Operation expected = new Sum(Arrays.asList(2,5));
+        //Act
+        Operation operation = factory.create("//;\n2;1001\n5");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
 }

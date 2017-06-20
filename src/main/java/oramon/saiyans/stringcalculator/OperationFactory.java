@@ -10,6 +10,12 @@ public class OperationFactory {
     public static final String LINE_BREAK = "\n";
     public static final String DEFINE_DELIMETER = "//";
 
+    public final int maxNumber;
+
+    public OperationFactory(){
+        maxNumber = 1000;
+    }
+
     public Operation create(String input) {
 
         if(input.trim().isEmpty()) return new Sum(0, 0);
@@ -18,6 +24,7 @@ public class OperationFactory {
         String[] numbers_splitted = sanitizedInput.split(delimeter);
         List<Integer> numbers = Arrays.stream(numbers_splitted)
                 .map(entry -> Integer.parseInt(entry.trim()))
+                .filter(number -> number <= maxNumber)
                 .collect(Collectors.toList());
         return new Sum(numbers);
     }
