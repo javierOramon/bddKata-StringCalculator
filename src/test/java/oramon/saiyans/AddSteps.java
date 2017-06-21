@@ -7,9 +7,9 @@ import oramon.saiyans.stringcalculator.Operation;
 import oramon.saiyans.stringcalculator.OperationFactory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AddSteps {
-
     private String input;
     private Operation operation;
 
@@ -28,5 +28,15 @@ public class AddSteps {
     public void resultWillBe(Integer expected){
         Integer result = operation.calculate();
         assertEquals("the result is not the expected", expected, result);
+    }
+
+    @When("^you process this input and fail")
+    public void proccessInputFailed() {
+        OperationFactory operationFactory = new OperationFactory();
+        try{
+            operation = operationFactory.create(input);
+        }catch (NotNegativesAllowed e){
+            assertTrue(true);
+        }
     }
 }

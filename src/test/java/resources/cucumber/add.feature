@@ -53,3 +53,7 @@ Feature: Add method
     Given you input of "//[*][%]\n1*2%3"
     When you process this input
     Then the result will be 6
+
+  Scenario: Negatives not allowed
+    Given you input of "-10,-10"
+    When you process this input and fail

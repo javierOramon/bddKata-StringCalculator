@@ -1,5 +1,7 @@
 package oramon.saiyans.stringcalculator;
 
+import oramon.saiyans.NotNegativesAllowed;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +26,11 @@ public class OperationFactory {
         if(input.trim().isEmpty()) return new Sum(0, 0);
         Delimeter delimeter = delimiterExtractor.extractDelimeter(input);
         List<Integer> numbers = delimeter.process(input);
+        for(Integer number : numbers){
+            if(number < 0){
+                throw new NotNegativesAllowed();
+            }
+        }
         return new Sum(numbers.stream().filter(number -> number < maxNumber).collect(Collectors.toList()));
     }
 }
