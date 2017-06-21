@@ -1,7 +1,12 @@
 package oramon.saiyans.stringcalculator;
 
+import com.google.common.collect.ImmutableMap;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Delimeter {
@@ -10,25 +15,39 @@ public class Delimeter {
     private static final String LINE_BREAK = "\n";
     private static final String DEFINE_DELIMETER = "//";
 
-    private String delimeter;
+    private final List<String> delimeters;
 
-    public Delimeter(String delimeter) {
-        this.delimeter = delimeter;
+    public Delimeter(List<String> delimeters) {
+        if(delimeters.isEmpty()){
+            this.delimeters = Arrays.asList(DEFAULT_DELIMETER);
+        }else{
+            this.delimeters = new ArrayList<>(delimeters);
+        }
+        this.delimeters.add(LINE_BREAK);
     }
 
     public List<Integer> process(String input) {
-        String sanitizedInput = extractOperation(input, delimeter);
-        String[] numbers_splitted = sanitizedInput.split(delimeter);
+        String numbers_space = extractStringNumbers(input);
+        String sanitized_numbers_space = alignDifferentDelimeters(numbers_space);
+        String[] numbers_splitted = sanitized_numbers_space.split("[" + scapeSpecialCharacters(primaryDelimeter()) + "]");
         List<Integer> numbers = Arrays.stream(numbers_splitted)
+                .filter(entry -> !entry.isEmpty())
                 .map(entry -> Integer.parseInt(entry.trim()))
                 .collect(Collectors.toList());
         return numbers;
     }
 
-    private String extractOperation(String input, String delimeter) {
-        String sanitizedInput = extractStringNumbers(input);
-        sanitizedInput = sanitizedInput.replace(LINE_BREAK, delimeter);
-        return sanitizedInput;
+    private String alignDifferentDelimeters(String numbers_space) {
+        String final_text = numbers_space.toString();
+        String primary_delimeter = primaryDelimeter();
+        for(String delimeter : delimeters){
+            final_text = final_text.replace(delimeter, primary_delimeter);
+        }
+        return final_text;
+    }
+
+    private String primaryDelimeter() {
+        return DEFAULT_DELIMETER;
     }
 
     private String extractStringNumbers(String input) {
@@ -40,5 +59,27 @@ public class Delimeter {
             sanitizedInput = input.toString();
         }
         return sanitizedInput;
+    }
+
+    private String scapeSpecialCharacters(String delimeter) {
+        Map<Character, String> possibilities = ImmutableMap.<Character, String>builder()
+                .put('*', "\\*")
+                .put('+', "\\+")
+                .put('?', "\\?")
+                .build();
+        Pattern p = Pattern.compile("[*+?]");
+        boolean hasSpecialCharacters = p.matcher(delimeter).find();
+        if(hasSpecialCharacters){
+            StringBuilder sb = new StringBuilder();
+            for(char character : delimeter.toCharArray()){
+                if(possibilities.containsKey(character)){
+                    sb.append(possibilities.get(character));
+                }else{
+                    sb.append(character);
+                }
+            }
+            delimeter = sb.toString();
+        }
+        return delimeter;
     }
 }

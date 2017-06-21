@@ -5,10 +5,6 @@ import java.util.stream.Collectors;
 
 public class OperationFactory {
 
-    public static final String DEFAULT_DELIMETER = ",";
-    public static final String LINE_BREAK = "\n";
-    public static final String DEFINE_DELIMETER = "//";
-
     DelimiterExtractor delimiterExtractor;
 
     private final int maxNumber;
