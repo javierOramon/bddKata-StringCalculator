@@ -87,6 +87,16 @@ public class OperationFactoryTest {
     }
 
     @Test
+    public void useDynamicDelimetersWithVariousCharacters(){
+        //Arrange
+        final Operation expected = new Sum(Arrays.asList(2,4,5));
+        //Act
+        Operation operation = factory.create("//[***][1234]\n212344***5");
+        //Assert
+        assertEquals("The operation is not the same", expected, operation);
+    }
+
+    @Test
     public void numbersUpper1000AreIgnoredInTheSum(){
         //Arrange
         final Operation expected = new Sum(Arrays.asList(2,5));
