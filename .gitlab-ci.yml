@@ -2,3 +2,7 @@ image: maven:latest
 
 build:
   script: "mvn install -B"
+artifacts:
+  paths:
+  - target/
+  - .jar
