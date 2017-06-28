@@ -8,6 +8,10 @@ public class StringCalculator {
             Double number = convertToNumber(operands[position]);
             result = result / number;
         }
+
+        if(Double.isInfinite(result)){
+            return "Cannot divide by zero";
+        }
         return result.toString();
     }
 

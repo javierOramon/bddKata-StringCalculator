@@ -8,7 +8,7 @@ Feature: Calculate method
       | input | result |
       | "2 / 5" | "0.4" |
       | "1 / 2" | "0.5" |
-#      | "1 / 0" | "Cannot divide by zero" |
+      | "1 / 0" | "Cannot divide by zero" |
 #      | "0 / 0" | "Result is undefined" |
 
 #  Scenario outline: Decimal numbers should be limited to 4 decimal places and rounding up and down is factored into the result
