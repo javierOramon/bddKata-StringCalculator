@@ -7,9 +7,9 @@ Feature: Calculate method
     Examples:
       | input | result |
       | "2 / 5" | "0.4" |
-      | "1 / 3" | "0.3333" |
-      | "1 / 0" | "Cannot divide by zero" |
-      | "0 / 0" | "Result is undefined" |
+#      | "1 / 3" | "0.3333" |
+#      | "1 / 0" | "Cannot divide by zero" |
+#      | "0 / 0" | "Result is undefined" |
 
 #  Scenario outline: Decimal numbers should be limited to 4 decimal places and rounding up and down is factored into the result
 #    Given an input of <input>
