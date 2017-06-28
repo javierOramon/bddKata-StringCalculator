@@ -7,7 +7,7 @@ Feature: Calculate method
     Examples:
       | input | result |
       | "2 / 5" | "0.4" |
-#      | "1 / 3" | "0.3333" |
+      | "1 / 2" | "0.5" |
 #      | "1 / 0" | "Cannot divide by zero" |
 #      | "0 / 0" | "Result is undefined" |
 
