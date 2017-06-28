@@ -54,7 +54,7 @@
         <sonar.projectName>StringCalculator</sonar.projectName>
         <sonar.projectVersion>0.0.1</sonar.projectVersion>
         <sonar.language>java</sonar.language>
-        <sonar.sources>src</sonar.sources>
+        <sonar.sources>src/main/java</sonar.sources>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
     </properties>
 
