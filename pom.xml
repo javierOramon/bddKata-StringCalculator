@@ -6,7 +6,7 @@
 
     <groupId>oramon.saiyans</groupId>
     <artifactId>StringCalculator</artifactId>
-    <version>0.0.1-RELEASE</version>
+    <version>0.0.1</version>
     <build>
         <plugins>
             <plugin>
