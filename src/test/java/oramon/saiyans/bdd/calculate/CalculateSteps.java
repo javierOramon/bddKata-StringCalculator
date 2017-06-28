@@ -12,7 +12,7 @@ public class CalculateSteps {
     private String input;
     private String result;
 
-    @Given("^your input is a division \"(.*?)\"$")
+    @Given("^an input of \"(.*?)\"$")
     public void inputOperation(String insert){
         this.input = insert.replace("\\n", "\n");
     }

@@ -16,7 +16,8 @@ public class StringCalculator {
         if(Double.isNaN(result)){
             return "Result is undefined";
         }
-        return result.toString();
+        Double value_rounded = Math.round(result * 10000) / 10000d;
+        return value_rounded.toString();
     }
 
     private double convertToNumber(String operand) {

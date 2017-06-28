@@ -1,7 +1,7 @@
 Feature: Calculate method
 
   Scenario Outline: Division with the Calculate method of the string calculator
-    Given your input is a division <input>
+    Given an input of <input>
     When you run the Calculate method
     Then the result will be a <result>
     Examples:
@@ -11,13 +11,14 @@ Feature: Calculate method
       | "1 / 0" | "Cannot divide by zero" |
       | "0 / 0" | "Result is undefined" |
 
-#  Scenario outline: Decimal numbers should be limited to 4 decimal places and rounding up and down is factored into the result
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 1 / 6  | 0.1667 |
-#      | 1 / 3 | 0.3333 |
+  Scenario Outline: Decimal numbers should be limited to 4 decimal places and rounding up and down is factored into the result
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "1 / 6"  | "0.1667" |
+      | "1 / 3" | "0.3333" |
 #      | 2 / 5 | 0.6667 |
 #      | 16 / 6 | 2.667 |
 #
