@@ -48,14 +48,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-
-        <!-- Sonar -->
-        <sonar.projectKey>stringcalculator</sonar.projectKey>
-        <sonar.projectName>StringCalculator</sonar.projectName>
-        <sonar.projectVersion>0.0.1</sonar.projectVersion>
-        <sonar.language>java</sonar.language>
-        <sonar.sources>src/main/java</sonar.sources>
-        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
     </properties>
 
 
