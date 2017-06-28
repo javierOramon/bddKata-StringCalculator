@@ -1,5 +1,8 @@
 package oramon.saiyans.stringcalculator;
 
+import oramon.saiyans.stringcalculator.operations.Operation;
+import oramon.saiyans.stringcalculator.operations.OperationFactory;
+import oramon.saiyans.stringcalculator.operations.Sum;
 import org.junit.Before;
 import org.junit.Test;
 

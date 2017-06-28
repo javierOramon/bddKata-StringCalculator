@@ -1,10 +1,11 @@
-package oramon.saiyans;
+package oramon.saiyans.bdd.add;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import oramon.saiyans.stringcalculator.Operation;
-import oramon.saiyans.stringcalculator.OperationFactory;
+import oramon.saiyans.NotNegativesAllowed;
+import oramon.saiyans.stringcalculator.operations.Operation;
+import oramon.saiyans.stringcalculator.operations.OperationFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

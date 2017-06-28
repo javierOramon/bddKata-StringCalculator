@@ -1,6 +1,10 @@
-package oramon.saiyans.stringcalculator;
+package oramon.saiyans.stringcalculator.operations;
 
 import oramon.saiyans.NotNegativesAllowed;
+import oramon.saiyans.stringcalculator.delimeter.Delimeter;
+import oramon.saiyans.stringcalculator.delimeter.DelimiterExtractor;
+import oramon.saiyans.stringcalculator.operations.Operation;
+import oramon.saiyans.stringcalculator.operations.Sum;
 
 import java.util.List;
 import java.util.stream.Collectors;

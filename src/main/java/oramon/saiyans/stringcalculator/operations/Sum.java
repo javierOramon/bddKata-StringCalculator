@@ -1,4 +1,4 @@
-package oramon.saiyans.stringcalculator;
+package oramon.saiyans.stringcalculator.operations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
