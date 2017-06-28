@@ -5,3 +5,12 @@ build:
   artifacts:
     paths:
     - target/*.jar
+    
+sonarqube:
+  script:
+    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=http://172.17.0.1:9000
+  stage: test
+  only:
+    - master
+  tags:
+    - java
