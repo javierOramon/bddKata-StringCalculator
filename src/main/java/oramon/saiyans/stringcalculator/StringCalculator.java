@@ -12,6 +12,10 @@ public class StringCalculator {
         if(Double.isInfinite(result)){
             return "Cannot divide by zero";
         }
+
+        if(Double.isNaN(result)){
+            return "Result is undefined";
+        }
         return result.toString();
     }
 
