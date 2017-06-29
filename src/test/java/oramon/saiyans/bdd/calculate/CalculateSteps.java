@@ -1,10 +1,9 @@
 package oramon.saiyans.bdd.calculate;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import oramon.saiyans.stringcalculator.StringCalculator;
+import oramon.saiyans.stringcalculator.calculate.StringCalculator;
 
 import static org.junit.Assert.assertEquals;
 

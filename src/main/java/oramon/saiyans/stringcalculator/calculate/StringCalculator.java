@@ -1,4 +1,4 @@
-package oramon.saiyans.stringcalculator;
+package oramon.saiyans.stringcalculator.calculate;
 
 import oramon.saiyans.NotNegativesAllowed;
 

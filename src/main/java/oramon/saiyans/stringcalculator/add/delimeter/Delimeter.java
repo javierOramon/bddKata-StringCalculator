@@ -1,4 +1,4 @@
-package oramon.saiyans.stringcalculator.delimeter;
+package oramon.saiyans.stringcalculator.add.delimeter;
 
 import com.google.common.collect.ImmutableMap;
 

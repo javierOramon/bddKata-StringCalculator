@@ -1,4 +1,4 @@
-package oramon.saiyans.stringcalculator.operations;
+package oramon.saiyans.stringcalculator.add.operations;
 
 public interface Operation {
 
