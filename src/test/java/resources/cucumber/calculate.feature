@@ -19,8 +19,7 @@ Feature: Calculate method
       | input | result |
       | "1 / 6"  | "0.1667" |
       | "1 / 3" | "0.3333" |
-#      | 2 / 5 | 0.6667 |
-#      | 16 / 6 | 2.667 |
+      | "16 / 6" | "2.6667" |
 #
 #  Scenario outline: Negative numbers while dividing with the Calculate method of the string calculator
 #    Given an input of <input>
