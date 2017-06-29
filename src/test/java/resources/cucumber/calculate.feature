@@ -40,15 +40,17 @@ Feature: Calculate method
       | "1 / 4000" | "1" |
       | "100 / 8250" | "100" |
       | "150 / 2200" | "150" |
-#
-#  Scenario outline: Addition with the Calculate method of the string calculator
-#    Given your input is an addition <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 2 + 4 | 6 |
-#      | 10 + 25 | 35 |
-#      | 150 + 225 | 375 |
+
+  Scenario Outline: Addition with the Calculate method of the string calculator
+    Given your input is an addition <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "2 + 4" | "6" |
+      | "10 + 25" | "35" |
+      | "150 + 225" | "375" |
+
 #
 #  Scenario outline: Negative numbers while adding with the Calculate method of the string calculator
 #    Given an input of <input>
