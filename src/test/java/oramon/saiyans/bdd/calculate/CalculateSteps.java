@@ -26,4 +26,9 @@ public class CalculateSteps {
     public void resultWillBe(String expected){
         assertEquals(expected, result );
     }
+
+    @Then("^an exception will be shown \"(.*?)\"$")
+    public void exceptionResult(String exception){
+        assertEquals(exception, result);
+    }
 }

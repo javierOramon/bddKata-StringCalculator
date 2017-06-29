@@ -1,5 +1,7 @@
 package oramon.saiyans.stringcalculator;
 
+import oramon.saiyans.NotNegativesAllowed;
+
 public class StringCalculator {
 
     public StringCalculator(){
@@ -7,15 +9,19 @@ public class StringCalculator {
     }
 
     public String calculate(String input) {
-        Double result = processOperation(input);
-        String code = invalidResult(result);
-        if (!code.isEmpty()) return code;
+        try{
+            Double result = processOperation(input);
+            String code = invalidResult(result);
+            if (!code.isEmpty()) return code;
 
-        Double value_rounded = round(result);
-        return value_rounded.toString();
+            Double value_rounded = round(result);
+            return value_rounded.toString();
+        }catch (NotNegativesAllowed e){
+            return e.getMessage();
+        }
     }
 
-    private Double processOperation(String input) {
+    private Double processOperation(String input) throws NotNegativesAllowed {
         String[] operands = input.split("/");
         Double result = convertToNumber(operands[0]);
         for (int position = 1; position < operands.length; position++){
@@ -41,7 +47,11 @@ public class StringCalculator {
         return Math.round(result * 10000) / 10000d;
     }
 
-    private double convertToNumber(String operand) {
-        return Double.parseDouble(operand.trim());
+    private Double convertToNumber(String operand) throws NotNegativesAllowed {
+        final double number = Double.parseDouble(operand.trim());
+        if(number < 0d){
+            throw new NotNegativesAllowed();
+        }
+        return number;
     }
 }

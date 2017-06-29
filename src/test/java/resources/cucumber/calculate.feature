@@ -20,15 +20,16 @@ Feature: Calculate method
       | "1 / 6"  | "0.1667" |
       | "1 / 3" | "0.3333" |
       | "16 / 6" | "2.6667" |
-#
-#  Scenario outline: Negative numbers while dividing with the Calculate method of the string calculator
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then an exception will be shown <exception>
-#      | input | result |
-#      | -2 / 5 | no negatives allowed |
-#      | -1 / 3 | no negatives allowed |
-#      | -1 / 0 | no negatives allowed |
+
+  Scenario Outline: Negative numbers while dividing with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then an exception will be shown <exception>
+    Examples:
+      | input | exception |
+      | "-2 / 5" | "no negatives allowed" |
+      | "-1 / 3" | "no negatives allowed" |
+      | "-1 / 0" | "no negatives allowed" |
 #
 #  Scenario outline: Numbers bigger than 1000 should be ignored by the string calculator during division
 #    Given an input of <input>
