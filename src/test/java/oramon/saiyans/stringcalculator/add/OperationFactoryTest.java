@@ -1,4 +1,4 @@
-package oramon.saiyans.stringcalculator;
+package oramon.saiyans.stringcalculator.add;
 
 import oramon.saiyans.stringcalculator.add.operations.Operation;
 import oramon.saiyans.stringcalculator.add.operations.OperationFactory;
