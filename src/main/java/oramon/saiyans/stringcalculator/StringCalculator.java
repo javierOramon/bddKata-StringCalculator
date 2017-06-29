@@ -9,7 +9,7 @@ public class StringCalculator {
     public String calculate(String input) {
         Double result = processOperation(input);
         String code = invalidResult(result);
-        if (code != null) return code;
+        if (!code.isEmpty()) return code;
 
         Double value_rounded = round(result);
         return value_rounded.toString();
