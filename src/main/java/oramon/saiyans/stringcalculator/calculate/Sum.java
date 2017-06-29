@@ -1,13 +1,19 @@
 package oramon.saiyans.stringcalculator.calculate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class Sum implements Operation {
-    private final List<Integer> operands;
+    private final List<Double> operands;
 
-    public Sum(int operand1, int operand2) {
-        operands = Arrays.asList(operand1, operand2);
+    public Sum(Double operand1, Double operand2) {
+        this.operands = Arrays.asList(operand1, operand2);
+    }
+
+    public  Sum(Collection<Double> operands) {
+        this.operands = new ArrayList<>(operands);
     }
 
     @Override
