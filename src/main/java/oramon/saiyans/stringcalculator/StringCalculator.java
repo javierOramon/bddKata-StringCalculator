@@ -1,12 +1,14 @@
 package oramon.saiyans.stringcalculator;
 
 import oramon.saiyans.NotNegativesAllowed;
-import oramon.saiyans.NumberUpperThanMax;
+
+import java.util.List;
 
 public class StringCalculator {
 
-    public StringCalculator(){
+    List<String> symbols;
 
+    public StringCalculator(){
     }
 
     public String calculate(String input) {
@@ -32,13 +34,31 @@ public class StringCalculator {
     }
 
     private Double processOperation(String input) throws NotNegativesAllowed {
-        String[] operands = input.split("/");
+        String symbol = extractSymbol(input);
+        String[] operands = input.split(symbol);
         Double result = processTextNumber(operands[0]);
         for (int position = 1; position < operands.length; position++){
             Double number = processTextNumber(operands[position]);
-            result = result / number;
+            switch (symbol){
+                case "/":
+                    result = result / number;
+                    break;
+                case "\\+":
+                    result = result + number;
+            }
         }
         return result;
+    }
+
+    private String extractSymbol(String input) {
+        String symbol = "";
+        if(input.contains("/")){
+
+            symbol = "/";
+        }else if(input.contains("+")){
+            symbol = "\\+";
+        }
+        return symbol;
     }
 
     private String invalidResult(Double result) {

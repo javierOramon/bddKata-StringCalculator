@@ -1,5 +1,6 @@
 package oramon.saiyans.bdd.calculate;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -30,5 +31,10 @@ public class CalculateSteps {
     @Then("^an exception will be shown \"(.*?)\"$")
     public void exceptionResult(String exception){
         assertEquals(exception, result);
+    }
+
+    @Given("^your input is an addition \"(.*?)\"$")
+    public void yourInputIsAnAdditionInput(String input)  {
+        this.input = input.replace("\\n", "\n");
     }
 }
