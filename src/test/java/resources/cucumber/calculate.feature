@@ -30,15 +30,16 @@ Feature: Calculate method
       | "-2 / 5" | "no negatives allowed" |
       | "-1 / 3" | "no negatives allowed" |
       | "-1 / 0" | "no negatives allowed" |
-#
-#  Scenario outline: Numbers bigger than 1000 should be ignored by the string calculator during division
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 1 / 4000 | 1 |
-#      | 100 / 8250 | 100 |
-#      | 150 / 2200 | 150 |
+
+  Scenario Outline: Numbers bigger than 1000 should be ignored by the string calculator during division
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be <result>
+    Examples: 
+      | input | result |
+      | 1 / 4000 | 1 |
+      | 100 / 8250 | 100 |
+      | 150 / 2200 | 150 |
 #
 #  Scenario outline: Addition with the Calculate method of the string calculator
 #    Given your input is an addition <input>
