@@ -1,6 +1,7 @@
 package oramon.saiyans.stringcalculator.calculate;
 
 public class OperationFactory {
+
     public Operation create(String text_input) {
         String[] operands = text_input.split("\\+");
         double operand1 = Double.parseDouble(operands[0].trim());
