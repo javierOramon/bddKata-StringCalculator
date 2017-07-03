@@ -18,7 +18,11 @@ public class Sum implements Operation {
 
     @Override
     public Double calculate() {
-        return null;
+        Double total = 0d;
+        for (Double number : operands) {
+            total += number;
+        }
+        return total;
     }
 
     @Override
