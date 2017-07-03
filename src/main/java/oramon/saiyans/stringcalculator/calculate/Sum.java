@@ -17,6 +17,11 @@ public class Sum implements Operation {
     }
 
     @Override
+    public Collection<Double> operands() {
+        return new ArrayList<>(operands);
+    }
+
+    @Override
     public Double calculate() {
         Double total = 0d;
         for (Double number : operands) {

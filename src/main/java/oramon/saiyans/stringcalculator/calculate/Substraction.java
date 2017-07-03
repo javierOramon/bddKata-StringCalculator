@@ -2,6 +2,7 @@ package oramon.saiyans.stringcalculator.calculate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class Substraction implements Operation {
@@ -12,8 +13,13 @@ public class Substraction implements Operation {
         operands = Arrays.asList(operand1, operand2);
     }
 
-    public Substraction(List<Double> operands) {
+    public Substraction(Collection<Double> operands) {
         this.operands = new ArrayList<>(operands);
+    }
+
+    @Override
+    public Collection<Double> operands() {
+        return new ArrayList<>(operands);
     }
 
     @Override

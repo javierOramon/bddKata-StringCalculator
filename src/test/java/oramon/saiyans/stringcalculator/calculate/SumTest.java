@@ -3,10 +3,22 @@ package oramon.saiyans.stringcalculator.calculate;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
 public class SumTest {
+
+    @Test
+    public void getOperands(){
+        //Arrange
+        Collection<Double> expectedOperands = Arrays.asList(1d, 2d, -1d, 0d);
+        Operation operation = new Sum(expectedOperands);
+        //Act
+        Collection<Double> result = operation.operands();
+        //Assert
+        assertEquals("The operands are not the same", expectedOperands, result);
+    }
 
     @Test
     public void operationEquality(){
