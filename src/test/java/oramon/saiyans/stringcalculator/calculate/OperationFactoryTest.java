@@ -21,7 +21,7 @@ public class OperationFactoryTest {
     @Test
     public void ASubstractionOperationIsCreatedProperly(){
         //Arrange
-        final Operation expected = new Substraction(4d, -5d);
+        final Operation expected = new Substraction(4d, 5d);
         OperationFactory factory = new OperationFactory();
         String text_input = "4 - 5";
         //Act
