@@ -51,15 +51,16 @@ Feature: Calculate method
       | "10 + 25" | "35" |
       | "150 + 225" | "375" |
 
-#
-#  Scenario outline: Negative numbers while adding with the Calculate method of the string calculator
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then an exception will be shown <exception>
-#      | input | result |
-#      | -2 + 7 | no negatives allowed |
-#      | -1 + 6 | no negatives allowed |
-#      | -1 + 0 | no negatives allowed |
+
+  Scenario Outline: Negative numbers while adding with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then an exception will be shown <exception>
+    Examples:
+      | input | exception |
+      | "-2 + 7" | "no negatives allowed" |
+      | "-1 + 6" | "no negatives allowed" |
+      | "-1 + 0" | "no negatives allowed" |
 #
 #  Scenario outline: Numbers bigger than 1000 should be ignored by the string calculator during addition
 #    Given an input of <input>
