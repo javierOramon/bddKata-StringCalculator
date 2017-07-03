@@ -15,7 +15,12 @@ public class OperationFactory {
         map = ImmutableMap.<String, BiFunction<Double, Double, Operation>>builder()
                 .put("+", this::buildSum)
                 .put("-", this::buildSubstraction)
+                .put("/", this::buildDivision)
                 .build();
+    }
+
+    private Operation buildDivision(Double operand1, Double operand2) {
+        return new Division(operand1, operand2);
     }
 
     private Operation buildSubstraction(double operand1, double operand2) {
