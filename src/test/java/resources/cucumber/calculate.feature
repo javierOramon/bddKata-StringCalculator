@@ -71,44 +71,48 @@ Feature: Calculate method
       | "2 + 4000" | "2" |
       | "100 + 8250" | "100" |
       | "150 + 2200" | "150" |
-#
-#  Scenario outline: Subtraction with the Calculate method of the string calculator
-#    Given your input is a subtraction <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 4 -2 |  2 |
-#      | 5 - 1 | 4 |
-#      | 222 - 112 | 110 |
-#
-#  Scenario outline: Negative numbers while subtracting with the Calculate method of the string calculator
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then an exception will be shown <exception>
-#      | input | result |
-#      | -2 - 7 | no negatives allowed |
-#      | -1 - 6 | no negatives allowed |
-#      | -1 - 0 | no negatives allowed |
-#
-#  Scenario outline: Numbers bigger than 1000 should be ignored by the string calculator during subtraction
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 2 - 4000 | 2 |
-#      | 100 - 8250 | 100 |
-#      | 150 - 2200 | 150 |
-#
-#  Scenario outline: Multiplying with the Calculate method of the string calculator
-#    Given you input is a multiplication <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 2 * 4 | 8 |
-#      | 8 * 9 | 72 |
-#      | 10 * 1 | 10 |
-#      | 0 * 0 | 0 |
-#      | 1 * 1 | 1 |
+
+  Scenario Outline: Subtraction with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "4 -2" |  "2" |
+      | "5 - 1" | "4" |
+      | "222 - 112" | "110" |
+
+  Scenario Outline: Negative numbers while subtracting with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then an exception will be shown <exception>
+    Examples:
+      | input | exception |
+      | "-2 - 7" | "no negatives allowed" |
+      | "-1 - 6" | "no negatives allowed" |
+      | "-1 - 0" | "no negatives allowed" |
+
+  Scenario Outline: Numbers bigger than 1000 should be ignored by the string calculator during subtraction
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "2 - 4000" | "2" |
+      | "100 - 8250" | "100" |
+      | "150 - 2200" | "150" |
+
+  Scenario Outline: Multiplying with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "2 * 4" | "8" |
+      | "8 * 9" | "72" |
+      | "10 * 1" | "10" |
+      | "0 * 0" | "0" |
+      | "1 * 1" | "1" |
 #
 #  Scenario outline: Negative numbers while multiplying with the Calculate method of the string calculator
 #    Given an input of <input>
