@@ -18,10 +18,16 @@ public class OperationFactory {
     public OperationFactory(){
         map = ImmutableMap.<String, Function<String, Operation>>builder()
                 .put("+", this::buildSum)
+                .put("*", this::buildMultiplication)
                 .put("/", this::buildDivision)
                 .put("-", this::buildSubstraction)
                 .build();
         maxNumber = 1000;
+    }
+
+    private Operation buildMultiplication(String text_input) {
+        Collection<Double> numbers = extractNumbers(text_input, "*");
+        return new Multiplication(numbers);
     }
 
     private Operation buildDivision(String text_input) {

@@ -13,7 +13,7 @@ public class CalculateSteps {
     private String input;
     private String result;
 
-    @Given("^an input of \"(.*?)\"$")
+    @Given("^an input of \"(.+?)\"$")
     public void inputOperation(String insert){
         this.input = insert.replace("\\n", "\n");
     }

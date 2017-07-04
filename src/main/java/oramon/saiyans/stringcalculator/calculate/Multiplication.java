@@ -32,4 +32,19 @@ public class Multiplication implements Operation {
         }
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Multiplication that = (Multiplication) o;
+
+        return operands != null ? operands.equals(that.operands) : that.operands == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return operands != null ? operands.hashCode() : 0;
+    }
 }

@@ -66,7 +66,7 @@ public class MultiplicationTest {
     @Test
     public void calculateMultiplicationWithNegativeValues() throws Exception {
         //Arrange
-        final Double expected = -2d;
+        final Double expected = 2d;
         Operation Multiplication = new Multiplication(-1d, -2d);
         //Act
         Double result = Multiplication.calculate();
