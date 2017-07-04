@@ -58,5 +58,17 @@ public class OperationFactoryTest {
         assertEquals("The operation is not the same", expected , operation);
     }
 
+    @Test
+    public void AMultiplicationOperationIsCreatedProperly(){
+        //Arrange
+        final Operation expected = new Multiplication(4d, 5d);
+        OperationFactory factory = new OperationFactory();
+        String text_input = "4 * 5";
+        //Act
+        Operation operation = factory.create(text_input);
+        //Assert
+        assertEquals("The operation is not the same", expected , operation);
+    }
+
 
 }
