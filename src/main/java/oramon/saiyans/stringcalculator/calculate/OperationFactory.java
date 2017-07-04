@@ -4,6 +4,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import oramon.saiyans.NotNegativesAllowed;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -22,29 +25,33 @@ public class OperationFactory {
     }
 
     private Operation buildDivision(String text_input) {
-        String text_prepared = text_input.replace(" ", "").replace("/", " ");
-        String[] operands = text_prepared.split(" ");
-        double operand1 = convertToNumber(operands[0]);
-        double operand2 = convertToNumber(operands[1]);
-        return new Division(operand1, operand2);
+        Collection<Double> numbers = extractNumbers(text_input, "/");
+        return new Division(numbers);
     }
 
     private Operation buildSubstraction(String text_input) {
         if(text_input.indexOf("-") != text_input.lastIndexOf("-")) throw new NotNegativesAllowed();
 
-        String text_prepared = text_input.replace(" ", "").replace("-", " ");
-        String[] operands = text_prepared.split(" ");
-        double operand1 = convertToNumber(operands[0]);
-        double operand2 = convertToNumber(operands[1]);
-        return new Substraction(operand1, operand2);
+        Collection<Double> numbers = extractNumbers(text_input, "-");
+        return new Substraction(numbers);
     }
 
     private Operation buildSum(String text_input) {
-        String text_prepared = text_input.replace(" ", "").replace("+", " ");
+        Collection<Double> numbers = extractNumbers(text_input, "+");
+        return new Sum(numbers);
+    }
+
+    private Collection<Double> extractNumbers(String text, String symbol){
+        String text_prepared = text.replace(" ", "").replace(symbol, " ");
         String[] operands = text_prepared.split(" ");
-        double operand1 = convertToNumber(operands[0]);
-        double operand2 = convertToNumber(operands[1]);
-        return new Sum(operand1, operand2);
+        List<Double> numbers = new ArrayList<>();
+        for(int position = 0; position < operands.length; position++){
+            double operand = convertToNumber(operands[position]);
+            if(operand <= maxNumber){
+               numbers.add(operand);
+            }
+        }
+        return numbers;
     }
 
     public Operation create(String text_input) {
@@ -62,10 +69,6 @@ public class OperationFactory {
         double number = Double.parseDouble(operand.trim());
         if(number < 0d){
             throw new NotNegativesAllowed();
-        }
-
-        if(number > maxNumber){
-            number = 1;
         }
         return number;
     }
