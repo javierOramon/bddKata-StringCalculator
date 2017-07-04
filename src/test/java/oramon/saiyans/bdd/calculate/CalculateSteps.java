@@ -15,6 +15,7 @@ public class CalculateSteps {
 
     @Given("^an input of \"(.+?)\"$")
     public void inputOperation(String insert){
+        if(insert == null) insert = "";
         this.input = insert.replace("\\n", "\n");
     }
 

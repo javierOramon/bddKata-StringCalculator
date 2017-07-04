@@ -113,29 +113,31 @@ Feature: Calculate method
       | "10 * 1" | "10" |
       | "0 * 0" | "0" |
       | "1 * 1" | "1" |
-#
-#  Scenario outline: Negative numbers while multiplying with the Calculate method of the string calculator
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then an exception will be shown <exception>
-#      | input | result |
-#      | -4 * 7 | no negatives allowed |
-#      | -1 * 3 | no negatives allowed |
-#      | -1 * 0 | no negatives allowed |
-#
-#  Scenario outline: Numbers bigger than 1000 should be ignored by the string calculator during multiplication
-#    Given an input of <input>
-#    When you run the Calculate method
-#    Then the result will be <result>
-#      | input | result |
-#      | 2 * 4000 | 2 |
-#      | 100 * 8250 | 100 |
-#      | 150 *  2200 | 150 |
-#
+
+  Scenario Outline: Negative numbers while multiplying with the Calculate method of the string calculator
+    Given an input of <input>
+    When you run the Calculate method
+    Then an exception will be shown <exception>
+    Examples:
+      | input | exception |
+      | "-4 * 7" | "no negatives allowed" |
+      | "-1 * 3" | "no negatives allowed" |
+      | "-1 * 0" | "no negatives allowed" |
+
+  Scenario Outline: Numbers bigger than 1000 should be ignored by the string calculator during multiplication
+    Given an input of <input>
+    When you run the Calculate method
+    Then the result will be a <result>
+    Examples:
+      | input | result |
+      | "2 * 4000" | "2" |
+      | "100 * 8250" | "100" |
+      | "150 *  2200" | "150" |
+
 #  Scenario: Empty string in string calculator
-#    Given you input ""
-#    When you process this input
-#    Then the string calculator will return 0
+#    Given you input of ""
+#    When you run the Calculate method
+#    Then the result will be a "0"
 #
 #  Extra scenarios (to add complexity - needs to be discussed):
 #
