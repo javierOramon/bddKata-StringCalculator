@@ -4,9 +4,9 @@ import oramon.saiyans.NotNegativesAllowed;
 
 public class StringCalculator {
 
-    private final OperationFactory operationFactory;
+    private final PoolOperationFactory operationFactory;
 
-    public StringCalculator(OperationFactory operationFactory){
+    public StringCalculator(PoolOperationFactory operationFactory){
         this.operationFactory = operationFactory;
     }
 

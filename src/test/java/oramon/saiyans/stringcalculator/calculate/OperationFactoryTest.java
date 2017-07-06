@@ -13,7 +13,7 @@ public class OperationFactoryTest {
     public void ASumOperationIsCreatedProperly(){
         //Arrange
         final Operation expected = new Sum(4d, 5d);
-        OperationFactory factory = new OperationFactory();
+        PoolOperationFactory factory = new PoolOperationFactory();
         String text_input = "4 + 5";
         //Act
         Operation operation = factory.create(text_input);
@@ -25,7 +25,7 @@ public class OperationFactoryTest {
     public void ASubstractionOperationIsCreatedProperly(){
         //Arrange
         final Operation expected = new Substraction(4d, 5d);
-        OperationFactory factory = new OperationFactory();
+        PoolOperationFactory factory = new PoolOperationFactory();
         String text_input = "4 - 5";
         //Act
         Operation operation = factory.create(text_input);
@@ -36,7 +36,7 @@ public class OperationFactoryTest {
     @Test
     public void ASubstractionWithNegativeValuesReturnAnError(){
         //Arrange
-        OperationFactory factory = new OperationFactory();
+        PoolOperationFactory factory = new PoolOperationFactory();
         String text_input = "-4 - 5";
         //Act
         try{
@@ -50,7 +50,7 @@ public class OperationFactoryTest {
     public void ADivisionOperationIsCreatedProperly(){
         //Arrange
         final Operation expected = new Division(4d, 5d);
-        OperationFactory factory = new OperationFactory();
+        PoolOperationFactory factory = new PoolOperationFactory();
         String text_input = "4 / 5";
         //Act
         Operation operation = factory.create(text_input);
@@ -62,7 +62,7 @@ public class OperationFactoryTest {
     public void AMultiplicationOperationIsCreatedProperly(){
         //Arrange
         final Operation expected = new Multiplication(4d, 5d);
-        OperationFactory factory = new OperationFactory();
+        PoolOperationFactory factory = new PoolOperationFactory();
         String text_input = "4 * 5";
         //Act
         Operation operation = factory.create(text_input);
